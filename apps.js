@@ -1,4 +1,5 @@
-const btn = document.querySelector(".btn");
+"use strict";
+// const btn = document.querySelector(".btn");
 
 // btn.addEventListener("mouseover", () => {
 //   console.log("Button Hovered!");
@@ -19,24 +20,52 @@ const btn = document.querySelector(".btn");
 // });
 // document.addEventListener("keydown", (event) => {
 //   console.log(event);
+// // });
+
+// const btnOpenModal = document.querySelector(".btn_open_modal");
+// const btnCloseModal = document.querySelector(".btn_close_modal");
+// const modal = document.querySelector(".modal");
+
+// const openModal = () => {
+//   modal.classList.remove("hidden");
+// };
+
+// const closeModal = () => {
+//   modal.classList.add("hidden");
+// };
+
+// btnOpenModal.addEventListener("click", openModal);
+// btnCloseModal.addEventListener("click", closeModal);
+// document.addEventListener("keydown", (Event) => {
+//   if (Event.key === "Escape") {
+//     closeModal();
+//   }
 // });
 
-const btnOpenModal = document.querySelector(".btn_open_modal");
-const btnCloseModal = document.querySelector(".btn_close_modal");
-const modal = document.querySelector(".modal");
+// //outer/inner
 
-const openModal = () => {
-  modal.classList.remove("hidden");
-};
+// const outer = document.querySelector(".outer");
+// const inner = document.querySelector(".inner");
 
-const closeModal = () => {
-  modal.classList.add("hidden");
-};
+// document.body.addEventListener("click", () => {
+//   console.log(body);
+// });
 
-btnOpenModal.addEventListener("click", openModal);
-btnCloseModal.addEventListener("click", closeModal);
-document.addEventListener("keydown", (Event) => {
-  if (Event.key === "Escape") {
-    closeModal();
+// outer.addEventListener("click", () => {
+//   console.log("Outer div");
+// });
+
+// inner.addEventListener("click", () => {
+//   console.log("Inner div");
+// });
+
+// // event bubbling\
+
+const outer = document.querySelector(".outer");
+
+outer.addEventListener("click", (Event) => {
+  if (Event.target.classList.contains("inner_one")) {
+    // console.log(Event.target);
+    document.body.style.backgroundColor = "pink";
   }
 });
