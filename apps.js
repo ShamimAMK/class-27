@@ -65,7 +65,9 @@ const outer = document.querySelector(".outer");
 
 outer.addEventListener("click", (Event) => {
   if (Event.target.classList.contains("inner_one")) {
-    // console.log(Event.target);
     document.body.style.backgroundColor = "pink";
+  }
+  if (Event.target.classList.contains("inner_two")) {
+    document.body.style.backgroundColor = "red";
   }
 });
