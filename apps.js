@@ -61,13 +61,69 @@
 
 // // event bubbling\
 
-const outer = document.querySelector(".outer");
+// const outer = document.querySelector(".outer");
 
-outer.addEventListener("click", (Event) => {
-  if (Event.target.classList.contains("inner_one")) {
-    document.body.style.backgroundColor = "pink";
+// outer.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("inner_one")) {
+//     document.body.style.backgroundColor = "pink";
+//   }
+//   if (event.target.classList.contains("inner_two")) {
+//     document.body.style.backgroundColor = "red";
+//   }
+//   if (event.target.classList.contains("inner_three")) {
+//     document.body.style.backgroundColor = "purple";
+//   }
+// });
+
+// const btnLight = document.querySelector(".light_theme");
+// const btnDark = document.querySelector(".dark_theme");
+
+// btnLight.addEventListener("click", () => {
+//   document.body.style.backgroundColor = "white";
+// });
+
+// btnDark.addEventListener("click", () => {
+//   document.body.style.backgroundColor = "black";
+// });
+
+// const theme = document.querySelector(".theme");
+
+// theme.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("light_theme"))
+//     document.body.style.backgroundColor = "white";
+//   if (event.target.classList.contains("dark_theme"))
+//     document.body.style.backgroundColor = "black";
+// });
+
+const todoInput = document.querySelector(".todo_input");
+const addBtn = document.querySelector(".add_btn");
+const todoList = document.querySelector(".todo_list");
+
+const createNewTodo = (task) => {
+  const li = document.createElement("li");
+  li.textContent = task;
+
+  li.addEventListener("click", function () {
+    this.remove();
+  });
+  return li;
+};
+
+const addTodo = () => {
+  const task = todoInput.value;
+
+  if (task !== "") {
+    const newTodo = createNewTodo(task);
+    todoInput.value = "";
+    todoList.appendChild(newTodo);
+  } else {
+    alert("Please enter a valid task!");
   }
-  if (Event.target.classList.contains("inner_two")) {
-    document.body.style.backgroundColor = "red";
+};
+
+addBtn.addEventListener("click", addTodo);
+todoInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    addTodo();
   }
 });
